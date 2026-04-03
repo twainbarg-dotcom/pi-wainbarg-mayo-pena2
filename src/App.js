@@ -1,29 +1,26 @@
-import Navbar from "./components/Navbar/navbar";
-import Footer from "./components/Footer/footer";
-import Login from "./screens/Login/login";
-import Home from "./screens/Home/home";
-import CrearCuenta from "./screens/CrearCuenta/crearCuenta";
-import Favoritos from "./screens/Favoritos/favoritos";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
+import Login from "./screens/Login/Login";
+import Home from "./screens/Home/Home";
+import CrearCuenta from "./screens/CrearCuenta/CrearCuenta";
+import Favoritos from "./screens/Favoritos/Favoritos";
 import { Switch, Route } from "react-router-dom";
+import Buscador from "./components/Buscador/Buscador";
 
 
 
 
 function App() {
-  
-
-
-
   return (
     <div className="App"> 
       <Navbar NavItem1="Home" NavItem2="AboutUs" NavItem3="Personajes" UserName="Walter White"/>
         <Switch>
-          <Route path="/home" exact={true} component={Home} />
+          <Route path="/" exact={true} component={Home} />
           <Route path="/login" component={Login}/>
           <Route path="/register" component={CrearCuenta} />
           <Route path="/favoritos" component={Favoritos} />
        </Switch>
-          
+      <Buscador/>   
       <Footer/>
       
     </div> 

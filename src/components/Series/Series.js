@@ -1,7 +1,7 @@
 import React from "react";
 
-function Home() {
+function Series() {
   return ;
 }
 
-export default Home;
+export default Series;
