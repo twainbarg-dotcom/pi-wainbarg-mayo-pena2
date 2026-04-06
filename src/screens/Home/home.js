@@ -1,18 +1,7 @@
 import React , {Component} from "react";
-import
-class Home extends Component() {
-  constructor(props){
-    super(props);
-      this.state = {valor:[]}
-  }
-  componentDidMount(){
-    fetch("https://api.themoviedb.org/3/movie/popular")
 
-    .then(response =>response.json())
-    .then(data => this.setState({valor: data.results}))
-    .catch(error => console.log(error))
-  }
-  return ;
+function Home(){
+
 }
 
 export default Home;

@@ -6,6 +6,7 @@ import CrearCuenta from "./screens/CrearCuenta/CrearCuenta";
 import Favoritos from "./screens/Favoritos/Favoritos";
 import { Switch, Route } from "react-router-dom";
 import Buscador from "./components/Buscador/Buscador";
+import Peliculas from "./components/Peliculas/Peliculas";
 
 
 
@@ -20,7 +21,8 @@ function App() {
           <Route path="/register" component={CrearCuenta} />
           <Route path="/favoritos" component={Favoritos} />
        </Switch>
-      <Buscador/>   
+      <Buscador/>  
+      <Peliculas/> 
       <Footer/>
       
     </div> 

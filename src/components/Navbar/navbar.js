@@ -6,14 +6,12 @@ class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      sesionActiva: false
+      
     };
   }
 
   componentDidMount() {
-    const cookies = document.cookie;
-    const tieneSesion = cookies.includes("session=");
-    this.setState({ sesionActiva: tieneSesion });
+    
   }
 
   render() {

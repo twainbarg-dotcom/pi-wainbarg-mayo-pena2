@@ -1,65 +1,72 @@
-import React from "react";
+import React, { Component } from "react";
+import CardPelicula from "../CardPelicula/CardPelicula";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import CardPeliculaT from "../CardPeliculaT/CardPeliculaT";
+const ApiKey = "?api_key=34257d6921cc3054f39832954b0d3a65"
 
-function Peliculas() {
-  return(       
-    <>
-    <h2 class="alert alert-primary">Popular movies this week</h2>
-            <section class="row cards" id="movies">
-            <article class="single-card-movie">
-                <img src="https://image.tmdb.org/t/p/w500/tzrJulItjttxzoX0t3B2My46TS7.jpg" class="card-img-top"
-                    alt="..."/>
-                <div class="cardBody">
-                    <h5 class="card-title">The Thursday Murder Club</h5>
-                    <p class="card-text">A group of senior sleuths passionate about solving cold cases get plunged into
-                        a real-life murder mystery in this comic crime caper.</p>
-                    <a href="movie.html" class="btn btn-primary">Ver más</a>
-                    <a href="" class="btn alert-primary">🩶</a>
-                </div>
-            </article>
-            <article class="single-card-movie">
-                <img src="https://image.tmdb.org/t/p/w500/9PXZIUsSDh4alB80jheWX4fhZmy.jpg" class="card-img-top"
-                    alt="..."/>
-                <div class="cardBody">
-                    <h5 class="card-title">F1</h5>
-                    <p class="card-text">Racing legend Sonny Hayes is coaxed out of retirement to lead a struggling
-                        Formula 1 team—and mentor a young hotshot driver—while chasing one more chance at glory.</p>
-                    <a href="movie.html" class="btn btn-primary">Ver más</a>
-                    <a href="" class="btn alert-primary">♥️</a>
-                </div>
-            </article>
-            <article class="single-card-movie">
-                <img src="https://image.tmdb.org/t/p/w500/A06yXys3hrCWu8xiNoHCFLTG5SH.jpg" class="card-img-top"
-                    alt="..."/>
-                <div class="cardBody">
-                    <h5 class="card-title">I Know What You Did Last Summer</h5>
-                    <p class="card-text">When five friends inadvertently cause a deadly car accident, they cover up
-                        their involvement and make a pact to keep it a secret rather than face the consequences. A year
-                        later, their past comes back to haunt them and they're forced to confront a horrifying truth:
-                        someone knows what they did last summer…and is hell-bent on revenge.</p>
-                    <a href="movie.html" class="btn btn-primary">Ver más</a>
-                    <a href="" class="btn alert-primary">♥️</a>
-                </div>
-            </article>
-            <article class="single-card-movie">
-                <img src="https://image.tmdb.org/t/p/w500/ombsmhYUqR4qqOLOxAyr5V8hbyv.jpg" class="card-img-top"
-                    alt="..."/>
-                <div class="cardBody">
-                    <h5 class="card-title">Superman</h5>
-                    <p class="card-text">Superman, a journalist in Metropolis, embarks on a journey to reconcile his
-                        Kryptonian heritage with his human upbringing as Clark Kent.</p>
-                    <a href="movie.html" class="btn btn-primary">Ver más</a>
-                    <a href="" class="btn alert-primary">♥️</a>
-                </div>
-            </article>
+class Peliculas extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            PeliculasAhora: [],
+            valor: "Ver Más",
+            PeliculasPopulares: []
+
+        }
+    }
+
+    
+    componentDidMount() {
+        fetch("https://api.themoviedb.org/3/movie/popular" + ApiKey)
+
+            .then(response => response.json())
+            .then(data => this.setState({ PeliculasAhora: data.results }))
+            .catch(error => console.log(error))
+
+        fetch("https://api.themoviedb.org/3/movie/now_playing" + ApiKey)
+
+            .then(response => response.json())
+            .then(data => this.setState({ PeliculasPopulares: data.results }))
+            .catch(error => console.log(error))
+    }
+    render() {
+        return (
+            <section>
+                <h2 className="alert alert-primary">Peliculas en tendencia</h2>
+                <section className='row cards' id= "movies">
+                    {
+                        this.state.PeliculasAhora.length === 0 ?
+                            <h3>Cargando...</h3> :
+                             this.state.PeliculasAhora.map(personaje => (
+                                <CardPeliculaT
+                                    id={personaje.id}
+                                    nombre={personaje.title}
+                                    foto={"https://image.tmdb.org/t/p/w342" + personaje.poster_path}
+                                    descrip={personaje.overview}
+                                />
+                        ))
+                }
+                </section>
+                <h2 className="alert alert-primary">Peliculas Populares</h2>
+                <section className='row cards' id= "movies">
+                    {
+                        this.state.PeliculasPopulares.length === 0 ?
+                            <h3>Cargando...</h3> :
+                             this.state.PeliculasPopulares.map(personaje => (
+                                <CardPelicula
+                                    nombre={personaje.title}
+                                    descrip={personaje.overview}
+                                    foto={"https://image.tmdb.org/t/p/w342" + personaje.poster_path}
+                                    id={personaje.id}
+                                />
+                        ))
+                }
+                </section>
             </section>
+                
 
- 
-        
-
-
-
-    </>
-
-)}
+        )
+    }
+}
 
 export default Peliculas;
