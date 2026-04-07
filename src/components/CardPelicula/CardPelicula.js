@@ -13,10 +13,10 @@ class CardPelicula extends Component{
 
     render(){
         return(
-            <article className='character-card'>
+            <article className= "single-card-playing">
                 <img src={this.props.foto} alt="" className="card-img-top" /> 
                 <div className="cardBody" >
-                    <h2>{this.props.nombre}</h2>
+                    <h2 className="card-title">{this.props.nombre}</h2>
                 
                     <button className='more' onClick={()=>this.mostrarMas()}>{this.state.valor}</button> 
                     <section className='extra'>
@@ -27,7 +27,7 @@ class CardPelicula extends Component{
                             </div>}
                     </section>
                     <Link to ={"/detalle/"+ this.props.id}>Ver detalles</Link>
-                    <button > Agregar a favoritos</button>
+                    <button className="btn alert-primary"> ♥️ </button>
                 </div>
                 
                 

@@ -7,6 +7,7 @@ import Favoritos from "./screens/Favoritos/Favoritos";
 import { Switch, Route } from "react-router-dom";
 import Buscador from "./components/Buscador/Buscador";
 import Peliculas from "./components/Peliculas/Peliculas";
+import Series from "./components/Series/Series";
 
 
 
@@ -23,6 +24,7 @@ function App() {
        </Switch>
       <Buscador/>  
       <Peliculas/> 
+      <Series/>
       <Footer/>
       
     </div> 

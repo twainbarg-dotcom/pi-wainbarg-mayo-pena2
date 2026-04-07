@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-class CardPeliculaT extends Component{
+class CardSeriesT extends Component{
     constructor(props){
         super(props);
             this.state = {valor : "Ver Más"}
@@ -13,7 +13,7 @@ class CardPeliculaT extends Component{
 
     render(){
         return(
-            <article className="single-card-movie">
+            <article className= "single-card-tv">
                 <img src={this.props.foto} alt="" className="card-img-top" /> 
                 <div className="cardBody" >
                     <h2 className="card-title">{this.props.nombre}</h2>
@@ -22,12 +22,12 @@ class CardPeliculaT extends Component{
                     <section className='extra'>
                         {this.state.valor==="Ver Más" ? null : 
                             <div>
-                                <p className="card-text">Descripcion:{this.props.descrip}</p>
+                                <p>Descripcion:{this.props.descrip}</p>
                             
                             </div>}
                     </section>
                     <Link to ={"/detalle/"+ this.props.id}>Ver detalles</Link>
-                    <button className="btn alert-primary">♥️</button>
+                    <button className="btn alert-primary"> ♥️ </button>
                 </div>
                 
                 
@@ -39,4 +39,24 @@ class CardPeliculaT extends Component{
     }
 }
 
-export default CardPeliculaT;
+export default CardSeriesT;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

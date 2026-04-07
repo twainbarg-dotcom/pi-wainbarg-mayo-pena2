@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "./Navbar.css";
+
 
 class Navbar extends Component {
   constructor(props) {
@@ -10,33 +10,35 @@ class Navbar extends Component {
     };
   }
 
-  componentDidMount() {
-    
-  }
-
+ 
   render() {
     return (
-      <nav className="navbar">
-        <Link to="/" className="navbar-logo">UdeSA Movies</Link>
-        <ul className="navbar-links">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/peliculas">Películas</Link></li>
-          <li><Link to="/series">Series</Link></li>
-
-          {this.state.sesionActiva === true &&
-            <li><Link to="/favoritos">Favoritas</Link></li>
-          }
-
-          {this.state.sesionActiva === false &&
-            <li className="nav-right"><Link to="/register">Registro</Link></li>
-          }
-          {this.state.sesionActiva === false &&
-            <li><Link to="/login">Login</Link></li>
-          }
-        </ul>
-      </nav>
-    );
-  }
+       <><h1>UdeSA Movies</h1>
+        <nav>
+             <ul class="nav nav-tabs my-4">
+                <li class="nav-item">
+                    <Link to="/" class="nav-link"> Home</Link>
+                </li>
+                <li class="nav-item">
+                    <Link to="/Peliculas" class="nav-link"> Peliculas</Link>
+                </li>
+                <li class="nav-item">
+                    <Link to="/Series" class="nav-link"> Series</Link>
+                </li>
+                <li class="nav-item">
+                    <Link to="/Favoritas" class="nav-link"> Favoritas</Link>
+                </li>
+                <li class="nav-item ml-auto">
+                    <Link to="/Registro" class="nav-link"> Registro</Link>
+                </li>
+                <li class="nav-item">
+                    <Link to="/Login" class="nav-link"> Login</Link>
+                </li>
+            </ul>
+           
+        </nav>
+        </>
+    )
 }
-
+}
 export default Navbar;
