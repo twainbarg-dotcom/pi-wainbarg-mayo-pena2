@@ -15,6 +15,7 @@ import Series from "./components/Series/Series";
 function App() {
   return (
     <div className="App"> 
+    <div class="container">
       <Navbar NavItem1="Home" NavItem2="AboutUs" NavItem3="Personajes" UserName="Walter White"/>
         <Switch>
           <Route path="/" exact={true} component={Home} />
@@ -25,6 +26,7 @@ function App() {
       <Buscador/>  
       <Peliculas/> 
       <Series/>
+      </div>
       <Footer/>
       
     </div> 

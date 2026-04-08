@@ -85,6 +85,14 @@ nav {
     width: 15%;
 }
 
+.btn btn-primary{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    display: block;
+    width: 100%;
+}
+
+
 @media(min-width: 765px){
     nav {
         grid-template-columns: 1fr;
