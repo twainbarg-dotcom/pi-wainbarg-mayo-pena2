@@ -8,7 +8,7 @@ import { Switch, Route } from "react-router-dom";
 import Buscador from "./components/Buscador/Buscador";
 import Peliculas from "./components/Peliculas/Peliculas";
 import Series from "./components/Series/Series";
-
+import Detalles from "./components/Detalles/Detalles"
 
 
 
@@ -22,6 +22,7 @@ function App() {
           <Route path="/login" component={Login}/>
           <Route path="/register" component={CrearCuenta} />
           <Route path="/favoritos" component={Favoritos} />
+          <Route path ="/detalle" component={Detalles} />
        </Switch>
       <Buscador/>  
       <Peliculas/> 
