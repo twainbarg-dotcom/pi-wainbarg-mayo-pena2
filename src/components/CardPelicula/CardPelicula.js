@@ -25,7 +25,7 @@ class CardPelicula extends Component {
 
                     }
                     <button className='btn btn-primary' onClick={() => this.mostrarMas()}>{this.state.valor}</button>
-                    <Link className='btn btn-primary' to={"/detalle/" + this.props.id}>Ver detalles</Link>
+                    <Link className='btn btn-primary' to={"/detallePelicula/" + this.props.id}>Ver detalles</Link>
                     <button className="btn alert-primary"> ♥️ </button>
                 </div>
 

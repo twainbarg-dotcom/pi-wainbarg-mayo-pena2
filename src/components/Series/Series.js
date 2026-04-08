@@ -25,7 +25,7 @@ class Series extends Component {
             .then(response => response.json())
             .then(data => {
                 this.setState({
-                    airing: data.results
+                    hoy: data.results
                 })
             })
             .catch(error => console.log(error))

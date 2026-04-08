@@ -26,7 +26,7 @@ class CardPeliculaT extends Component{
                             
                             </div>}
                     </section>
-                    <Link className='btn btn-primary' to ={"/detalle/"+ this.props.id}>Ver detalles</Link>
+                    <Link className='btn btn-primary' to ={"/detallePelicula/"+ this.props.id}>Ver detalles</Link>
                     <button className="btn alert-primary">♥️</button>
                 </div>
                 

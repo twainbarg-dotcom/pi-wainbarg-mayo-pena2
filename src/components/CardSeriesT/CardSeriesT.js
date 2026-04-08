@@ -14,7 +14,7 @@ class CardSeriesT extends Component{
     render(){
         return(
             <article className= "single-card-tv">
-                <img src={this.props.foto} alt="" className="card-img-top" /> 
+                <img src={this.props.imagen} alt="" className="card-img-top" /> 
                 <div className="cardBody" >
                     <h2 className="card-title">{this.props.nombre}</h2>
                 
@@ -22,11 +22,11 @@ class CardSeriesT extends Component{
                     <section className='extra'>
                         {this.state.valor==="Ver Más" ? null : 
                             <div>
-                                <p>Descripcion:{this.props.descrip}</p>
+                                <p>Descripcion:{this.props.desc}</p>
                             
                             </div>}
                     </section>
-                    <Link to ={"/detalle/"+ this.props.id}>Ver detalles</Link>
+                    <Link to ={"/detalleSerie/"+ this.props.id}>Ver detalles</Link>
                     <button className="btn alert-primary"> ♥️ </button>
                 </div>
                 
