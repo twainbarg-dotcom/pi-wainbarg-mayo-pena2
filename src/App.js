@@ -10,6 +10,8 @@ import Peliculas from "./components/Peliculas/Peliculas";
 import Series from "./components/Series/Series";
 import DetalleP from "./screens/DetalleP/DetalleP";
 import DetalleSerie from "./screens/DetalleSerie/DetalleSerie";
+import Search from "./screens/SearchResults/SearchResults";
+import SearchResults from "./screens/SearchResults/SearchResults";
 
 
 
@@ -25,6 +27,7 @@ function App() {
           <Route path="/favoritos" component={Favoritos} />
           <Route path ="/detallePelicula/:id" component={DetalleP} />
           <Route path = "/detalleSerie/:id" component={DetalleSerie}/>
+          <Route path = "/resultadosBusqueda/:nombre/:tipo"  component= {SearchResults}  />
           
        </Switch>
       

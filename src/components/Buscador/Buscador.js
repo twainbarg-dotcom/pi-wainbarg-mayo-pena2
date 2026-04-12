@@ -1,14 +1,45 @@
-import React from "react";
+import React, {Component} from "react";
+import { withRouter } from "react-router-dom/cjs/react-router-dom.min";
 
-function Buscador() {
-  return (
-    <form className="search-form" action="results.html" method="get">
-      <input type="text" name="searchData" placeholder="Buscar..." />
-      <button type="submit" className="btn btn-success btn-sm">
-        Buscar
-      </button>
-    </form>
-  );
+class Buscador extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { 
+          valor: '' ,
+          tipo: "movie"
+
+        };
+    }
+
+    evitarSubmit(event) {
+        event.preventDefault();
+        this.props.history.push('/resultadosBusqueda/' + this.state.valor + "/"+this.state.tipo)
+    }
+
+    controlarCambios(event) {
+        this.setState({ valor: event.target.value });
+    }
+    cambiarTipo(event) {
+      this.setState({ tipo: event.target.value });
+    }
+
+    render() {
+        return (
+            <form onSubmit={(event) => this.evitarSubmit(event)}>
+                <label>Que deseas ver: </label>
+                <input type="text" onChange={(event) => this.controlarCambios(event)} value={this.state.valor} />
+                <button type="submit">Buscar</button>
+              <label>
+              <input type="radio" name="tipo" value="movie" checked={this.state.tipo === "movie"} onChange={(event) => this.cambiarTipo(event)}/>
+                Películas
+              </label>
+
+              <label>
+              <input type="radio" name="tipo" value="tv" checked={this.state.tipo === "tv"} onChange={(event) => this.cambiarTipo(event)}/>
+                Series
+              </label>
+            </form>
+        );
+    }
 }
-
-export default Buscador;
+export default withRouter(Buscador)
