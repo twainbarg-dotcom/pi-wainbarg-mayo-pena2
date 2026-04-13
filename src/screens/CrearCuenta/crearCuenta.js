@@ -17,18 +17,31 @@ class formulario2 extends Component {
     const email = this.state.email;
     const contraseña = this.state.password;
 
-   
-    { contraseña.length < 6 ? alert("La contraseña debe ser mayor a 6 caracteres") :
-      
-      localStorage.setItem ("contraseña",contraseña)  
-    
-  }
-  {
-    email.includes("@") ?
 
-    localStorage.setItem("email",email) : alert("El Email debe contener un @")
-  }
+    
+
+
+    
+
+    if (!email.includes("@")) {
+      
+      
+      alert('El Mail no tiene @')
+      
+      
+    } else {
+      
+      localStorage.setItem("email", email) 
     }
+  if (contraseña.length < 6) {
+        
+        
+        alert("La contraseña debe tener mas de 6 caracteres")
+      }else {
+        localStorage.setItem("contraseña", contraseña)
+      }
+      
+  }
 
 
   controlarCambios(event) {
@@ -46,7 +59,7 @@ class formulario2 extends Component {
       <form onSubmit={(event) => this.evitarSubmit(event)}>
         <h2 className="alert alert-primary">Registrarse</h2>
         <div class="row justify-content-center">
-          
+
 
 
           <div className="form-group">

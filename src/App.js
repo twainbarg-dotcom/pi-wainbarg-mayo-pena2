@@ -24,7 +24,7 @@ function App() {
         <Switch>
           <Route path="/" exact={true} component={Home} />
           <Route path="/login" component={Login}/>
-          <Route path="/register" component={CrearCuenta} />
+          <Route path="/registro" component={CrearCuenta} />
           <Route path="/favoritos" component={Favoritos} />
           <Route path ="/detallePelicula/:id" component={DetalleP} />
           <Route path = "/detalleSerie/:id" component={DetalleSerie}/>
