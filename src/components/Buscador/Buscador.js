@@ -25,10 +25,10 @@ class Buscador extends Component {
 
     render() {
         return (
-            <form onSubmit={(event) => this.evitarSubmit(event)}>
+            <form className="search-form" onSubmit={(event) => this.evitarSubmit(event)}>
                 <label>Que deseas ver: </label>
-                <input type="text" onChange={(event) => this.controlarCambios(event)} value={this.state.valor} />
-                <button type="submit">Buscar</button>
+                <input placeholder="Buscar..." className="" type="text" onChange={(event) => this.controlarCambios(event)} value={this.state.valor} />
+                <button className="btn btn-success" type="submit">Buscar</button>
               <label>
               <input type="radio" name="tipo" value="movie" checked={this.state.tipo === "movie"} onChange={(event) => this.cambiarTipo(event)}/>
                 Películas
