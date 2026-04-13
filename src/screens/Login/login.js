@@ -1,7 +1,7 @@
 import React from "react";
 import { Component } from "react";
-import Cookies from "universal-cookie"
-const cookies = new Cookies()
+
+
 
 
 
@@ -16,7 +16,7 @@ class formulario extends Component {
   }
 evitarSubmit(event){
   event.preventDefault();
-
+// router.push("/")
 
 
 }
@@ -28,16 +28,11 @@ controlarPassword(event){
   this.setState({password:event.target.value});  
 }
 
-onSubmit(email,password){
 
-}
 
 //espacio para cookies
 
 
-if (user){
-  cookies.set("user-auth-cookie",user.email)
-}
 
 
 

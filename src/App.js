@@ -12,13 +12,14 @@ import DetalleP from "./screens/DetalleP/DetalleP";
 import DetalleSerie from "./screens/DetalleSerie/DetalleSerie";
 import Search from "./screens/SearchResults/SearchResults";
 import SearchResults from "./screens/SearchResults/SearchResults";
+import formulario2 from "./screens/CrearCuenta/CrearCuenta";
 
 
 
 function App() {
   return (
     <div className="App"> 
-    <div class="container">
+    <div className="container">
       <Navbar NavItem1="Home" NavItem2="AboutUs" NavItem3="Personajes" UserName="Walter White"/>
         <Switch>
           <Route path="/" exact={true} component={Home} />

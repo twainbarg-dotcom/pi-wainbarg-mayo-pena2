@@ -16,7 +16,7 @@ class Navbar extends Component {
        <><h1>UdeSA Movies</h1>
         <nav>
              <ul class="nav nav-tabs my-4">
-                <li class="nav-item">
+                <li className="nav-item">
                     <Link to="/" class="nav-link"> Home</Link>
                 </li>
                 <li class="nav-item">
