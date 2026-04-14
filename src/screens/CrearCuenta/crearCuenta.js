@@ -7,41 +7,45 @@ class formulario2 extends Component {
     this.state = {
 
       email: "",
-      password: ""
+      password: "",
+      username: ""
     };
   }
 
 
   evitarSubmit(event) {
     event.preventDefault();
-    const email = this.state.email;
-    const contraseña = this.state.password;
-
-
-    
-
-
-    
-
-    if (!email.includes("@")) {
-      
-      
-      alert('El Mail no tiene @')
-      
-      
-    } else {
-      
-      localStorage.setItem("email", email) 
+   let usuarioACrear = {
+      email : this.state.email,
+      password : this.state.password,
+      username : this.state.username,
+      createdAt: Date.now()
     }
-  if (contraseña.length < 6) {
-        
-        
-        alert("La contraseña debe tener mas de 6 caracteres")
-      }else {
-        localStorage.setItem("contraseña", contraseña)
-      }
+
+
+  if (!(this.state.username.length >= 3 && this.state.username.length <= 7)) {
+      alert({ error: "La extensión del username debe ser de 3 a 7 caracteres" });
+      return;
+    }
+    
+
+
+  if (!this.state.email.includes("@")) {
+      alert({ error: "email mal formateado" });
+      return;
+    }
+
+  
+  if (!(this.state.password.length >= 5 && this.state.password.length <= 12)) {
+      alert({ error: "La extensión del password debe ser de 5 a 12 caracteres" });
+      return;
+    }
       
-  }
+      
+     
+      
+      
+
 
 
   controlarCambios(event) {
@@ -76,7 +80,7 @@ class formulario2 extends Component {
     );
   }
 }
-
+}
 
 
 
