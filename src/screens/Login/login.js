@@ -31,6 +31,7 @@ class formulario extends Component {
 
       if (usuarioExistente == null) {
         alert("“El usuario ingresado no existe”")
+        return;
       } else {
         
       sessionStorage.setItem("usuarioEnSesion", JSON.stringify({ sesionActiva: true }));

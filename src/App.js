@@ -13,6 +13,7 @@ import DetalleSerie from "./screens/DetalleSerie/DetalleSerie";
 import Search from "./screens/SearchResults/SearchResults";
 import SearchResults from "./screens/SearchResults/SearchResults";
 import formulario2 from "./screens/CrearCuenta/CrearCuenta";
+import Seriess from "./screens/SeriesScreen/SeriesScreen";
 
 
 
@@ -29,6 +30,7 @@ function App() {
           <Route path ="/detallePelicula/:id" component={DetalleP} />
           <Route path = "/detalleSerie/:id" component={DetalleSerie}/>
           <Route path = "/resultadosBusqueda/:nombre/:tipo"  component= {SearchResults}  />
+          <Route path = "/Series" component= {Seriess}/>
           
        </Switch>
       

@@ -1,6 +1,6 @@
 import React from "react";
 import { Component } from "react";
-
+import { Link } from "react-router-dom/cjs/react-router-dom";
 class formulario2 extends Component {
   constructor(props) {
     super(props);
@@ -99,7 +99,7 @@ class formulario2 extends Component {
             <label for="password">Password</label>
             <input type="password" className="form-control" placeholder="Ingresá tu contraseña" onChange={(event) => this.controlarPassword(event)} value={this.state.password} />
           </div>
-          <input type="submit" className="btn btn-primary btn-block" value="Registrarse" />
+          <Link to="/login" className="btn btn-primary btn-block"><input type="submit" className="btn btn-primary btn-block" value="Registrarse" /></Link>
         </div>
 
       </form>
