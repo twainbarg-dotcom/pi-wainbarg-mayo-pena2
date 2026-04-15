@@ -14,7 +14,7 @@ class CardPelicula extends Component {
     render() {
         return (
             <article className="single-card-playing">
-                hola
+                
                 <img src={this.props.foto} alt="" className="card-img-top" />
                 <div className="cardBody" >
                     <h5 className="card-title">{this.props.nombre}</h5>

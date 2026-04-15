@@ -33,33 +33,42 @@ class Peliculas extends Component {
         return (
             <section>
                 <h2 className="alert alert-primary">Peliculas en tendencia</h2>
-                <section className='row cards' id= "movies">
+                <section className='row cards' id="movies">
                     {
                         this.state.PeliculasAhora.length === 0 ?
                             <h3>Cargando...</h3> :
-                             this.state.PeliculasAhora.map(personaje => (
-                                <CardPeliculaT
-                                    id={personaje.id}
-                                    nombre={personaje.title}
-                                    foto={"https://image.tmdb.org/t/p/w342" + personaje.poster_path}
-                                    descrip={personaje.overview}
-                                />
-                        ))
-                }
+                            this.state.PeliculasAhora.map((personaje, i) => {
+                                if (i <= 3) {
+                                    return(<CardPeliculaT
+                                        id={personaje.id}
+                                        nombre={personaje.title}
+                                        foto={"https://image.tmdb.org/t/p/w342" + personaje.poster_path}
+                                        descrip={personaje.overview}
+                                    />
+                            )}
+                            return null 
+                        })
+                            
+                                
+                                
+                            }
+                                
+                
                 </section>
                 <h2 className="alert alert-primary">Peliculas Populares</h2>
                 <section className='row cards' id= "movies">
                     {
-                        this.state.PeliculasPopulares.length === 0 ?
-                            <h3>Cargando...</h3> :
-                             this.state.PeliculasPopulares.map(personaje => (
-                                <CardPelicula
-                                    nombre={personaje.title}
-                                    descrip={personaje.overview}
-                                    foto={"https://image.tmdb.org/t/p/w342" + personaje.poster_path}
-                                    id={personaje.id}
-                                />
-                        ))
+                        this.state.PeliculasPopulares.map((personaje, i) => {
+                                if (i <= 3) {
+                                    return(<CardPelicula
+                                        id={personaje.id}
+                                        nombre={personaje.title}
+                                        foto={"https://image.tmdb.org/t/p/w342" + personaje.poster_path}
+                                        descrip={personaje.overview}
+                                    />
+                            )}
+                            return null 
+                        })
                 }
                 </section>
             </section>

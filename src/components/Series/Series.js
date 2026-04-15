@@ -39,14 +39,17 @@ class Series extends Component {
                 <section className="row cards" id="tv-show">
                     {
                         this.state.popular.length > 0 ? (
-                            this.state.popular.map((personaje) =>
-                                <CardSeries
-                                    id = {personaje.id}
-                                    nombre={personaje.original_name}
-                                    imagen={"https://image.tmdb.org/t/p/w342" + personaje.poster_path}
-                                    desc={personaje.overview}
-                                />
-                            )
+                            this.state.popular.map((personaje, i) => {
+                                if (i <= 3) {
+                                    return(<CardSeries
+                                        id={personaje.id}
+                                        nombre={personaje.original_name}
+                                        imagen={"https://image.tmdb.org/t/p/w342" + personaje.poster_path}
+                                        desc={personaje.overview}
+                                    />
+                            )}
+                            return null 
+                        })
                         ) : (<p>Cargando....</p>)
 
 
@@ -56,14 +59,17 @@ class Series extends Component {
                 <section className="row cards" id="on-air-today">
                     {
                         this.state.hoy.length > 0 ? (
-                            this.state.hoy.map((personaje) =>
-                                <CardSeriesT
-                                    id = {personaje.id}
-                                    nombre={personaje.original_name}
-                                    imagen={"https://image.tmdb.org/t/p/w342" + personaje.poster_path}
-                                    desc={personaje.overview}
-                                />
-                            )
+                            this.state.hoy.map((personaje, i) => {
+                                if (i <= 3) {
+                                    return(<CardSeriesT
+                                        id={personaje.id}
+                                        nombre={personaje.original_name}
+                                        imagen={"https://image.tmdb.org/t/p/w342" + personaje.poster_path}
+                                        desc={personaje.overview}
+                                    />
+                            )}
+                            return null 
+                        })
                         ) : (<p>Cargando....</p>)
 
 
