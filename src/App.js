@@ -14,6 +14,7 @@ import Search from "./screens/SearchResults/SearchResults";
 import SearchResults from "./screens/SearchResults/SearchResults";
 import formulario2 from "./screens/CrearCuenta/CrearCuenta";
 import Seriess from "./screens/SeriesScreen/SeriesScreen";
+import Peliculass from "./screens/PeliculasScreen/PeliculasScreen";
 
 
 
@@ -31,6 +32,7 @@ function App() {
           <Route path = "/detalleSerie/:id" component={DetalleSerie}/>
           <Route path = "/resultadosBusqueda/:nombre/:tipo"  component= {SearchResults}  />
           <Route path = "/Series" component= {Seriess}/>
+          <Route path="/Peliculas" component={Peliculass}/>
           
        </Switch>
       
