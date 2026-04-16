@@ -27,16 +27,20 @@ class DetalleP extends Component {
  
   return (
    <React.Fragment>
-    <div>
+    <div className="container">
                 {this.state.personaje === "" ? <p>Cargando..</p> : 
+                  
                 
-                    <div>
-                        <h2>{this.state.personaje.original_title}</h2>
+                    <div className="detalle-contenedor">
+                        <h2 className="alert alert-primary">{this.state.personaje.original_title}</h2>
                         <img src={"https://image.tmdb.org/t/p/w342" + this.state.personaje.poster_path} alt="" />
-                        <p>{this.state.personaje.genres[0].name}</p>
-                        <p>{this.state.personaje.vote_average}</p>
-                        <p>{this.state.personaje.release_date}</p>
-                        <p>{this.state.personaje.runtime}</p>
+                        <section className="col-md-6 info">
+                          <h3>Descripción</h3>
+                          <p className="description">{this.state.personaje.overview}</p>
+                          <p className="mt-0" id="votes"> <strong>Puntuación:</strong> {this.state.personaje.vote_average}</p>
+                          <p className="mt-0 mb-0" id="release-date"> <strong>Fecha de estreno:</strong>{this.state.personaje.release_date}</p>
+                          <p className="mt-0 mb-0 length"><strong>Duración:</strong>{this.state.personaje.runtime}</p>
+                        </section>
                         <button>Agregar a favoritos</button>
 
 

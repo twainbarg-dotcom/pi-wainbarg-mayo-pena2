@@ -27,16 +27,17 @@ class DetalleSerie extends Component {
  
   return (
    <React.Fragment>
-    <div>
+    <div className="container">
                 {this.state.personaje === "" ? <p>Cargando..</p> : 
                 
                     <div>
-                        <h2>{this.state.personaje.original_title}</h2>
+                        <h2 className="alert alert-warning">{this.state.personaje.original_title}</h2>
                         <img src={"https://image.tmdb.org/t/p/w342" + this.state.personaje.poster_path} alt="" />
-                        <p>{this.state.personaje.genres[0].name}</p>
-                        <p>{this.state.personaje.vote_average}</p>
-                        <p>{this.state.personaje.first_air_date}</p>
-                        <p>{this.state.personaje.overview}</p>
+                        <h3>Descripción</h3>
+                        <p className="description">{this.state.personaje.overview}</p>
+                        <p className="mt-0 mb-0" id="release-date"><strong>Puntuación:</strong>{this.state.personaje.vote_average}</p>
+                        <p class="mt-0 mb-0" id="release-date"><strong>Fecha de estreno:</strong>{this.state.personaje.first_air_date}</p>
+                        <p class="mt-0 mb-0" id="episodes"><strong>Número de capítulos:</strong>{this.state.personaje.overview}</p>
                         <button>Agregar a favoritos</button>
 
 
