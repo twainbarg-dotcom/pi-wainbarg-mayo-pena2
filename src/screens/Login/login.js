@@ -1,8 +1,9 @@
 import React from "react";
 import { Component } from "react";
 import Cookies from "universal-cookie"
-const cookies = new Cookies()
+import { withRouter } from "react-router-dom/cjs/react-router-dom";
 
+const cookies = new Cookies()
 
 
 
@@ -16,9 +17,21 @@ class formulario extends Component {
       password: ""
     };
   }
+
+  controlaremail(event) {
+    this.setState({ email: event.target.value });
+    }
+
+
+  controlarPassword(event) {
+    this.setState({ password: event.target.value });
+
+
+  }
+
   evitarSubmit(event) {
     event.preventDefault();
-    // router.push("/")
+    
 
     let usersStorage = localStorage.getItem("users");
 
@@ -37,7 +50,7 @@ class formulario extends Component {
       sessionStorage.setItem("usuarioEnSesion", JSON.stringify({ sesionActiva: true }));
     }
 
-    cookies.set("authUser", this.state.email)
+    cookies.set("auth-user", this.state.email)
 
     this.props.history.push("/")
       }
@@ -45,16 +58,7 @@ class formulario extends Component {
     }
     
 
-controlaremail(event) {
-    this.setState({ email: event.target.value });
-    }
 
-
-  controlarPassword(event) {
-    this.setState({ password: event.target.value });
-
-
-  }
 
   render() {
     return (
@@ -65,10 +69,10 @@ controlaremail(event) {
 
           <div className="form-group">
             <label for="email">Email</label>
-            <input type="email" className="form-control" placeholder="Ingresá tu email" onChange={(event) => this.controlaremail(event)} value={this.state.valor} />
+            <input type="email" className="form-control" placeholder="Ingresá tu email" onChange={(event) => this.controlaremail(event)} value={this.state.email} />
 
             <label for="password">Password</label>
-            <input type="password" className="form-control" placeholder="Ingresá tu contraseña" onChange={(event) => this.controlarPassword(event)} value={this.state.valor} />
+            <input type="password" className="form-control" placeholder="Ingresá tu contraseña" onChange={(event) => this.controlarPassword(event)} value={this.state.password} />
           </div>
           <input type="submit" className="btn btn-primary btn-block" value="Iniciar sesion" />
         </div>
@@ -80,20 +84,4 @@ controlaremail(event) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-export default formulario;
+export default withRouter(formulario);

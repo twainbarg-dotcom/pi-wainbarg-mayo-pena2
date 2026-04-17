@@ -1,7 +1,6 @@
 import React from "react";
 import { Component } from "react";
-import { Link } from "react-router-dom/cjs/react-router-dom";
-class formulario2 extends Component {
+import { withRouter } from "react-router-dom";class formulario2 extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -64,6 +63,8 @@ class formulario2 extends Component {
     }
 
     alert("Usuario creado correctamente");
+
+    this.props.history.push("/Login")
   }
 
   controlarEmail(event) {
@@ -99,7 +100,7 @@ class formulario2 extends Component {
             <label for="password">Password</label>
             <input type="password" className="form-control" placeholder="Ingresá tu contraseña" onChange={(event) => this.controlarPassword(event)} value={this.state.password} />
           </div>
-          <Link to="/login" className="btn btn-primary btn-block"><input type="submit" className="btn btn-primary btn-block" value="Registrarse" /></Link>
+         <input type="submit" className="btn btn-primary btn-block" value="Registrarse" />
         </div>
 
       </form>
@@ -107,10 +108,4 @@ class formulario2 extends Component {
   }
 }
 
-
-
-
-
-
-
-export default formulario2;
+export default withRouter(formulario2);
