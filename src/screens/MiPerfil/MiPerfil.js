@@ -19,7 +19,12 @@ class MiPerfil extends Component{
 
 
 render () {
-    return (
+    const userLogueado = cookies.get("auth-user");
+
+    if (!userLogueado){
+        this.props.history.push("/login");
+    }
+    return ( 
         <div>
         <h2>Mi perfil</h2>
         <button onClick={ () => this.logout()} >Cerrar Sesion</button>

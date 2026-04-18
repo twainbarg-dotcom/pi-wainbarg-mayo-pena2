@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
 
 
 class Navbar extends Component {
@@ -12,8 +14,11 @@ class Navbar extends Component {
 
  
   render() {
+    const authCookie = cookies.get("auth-user");
+
     return (
        <><h1>UdeSA Movies</h1>
+
         <nav>
              <ul class="nav nav-tabs my-4">
                 <li className="nav-item">
