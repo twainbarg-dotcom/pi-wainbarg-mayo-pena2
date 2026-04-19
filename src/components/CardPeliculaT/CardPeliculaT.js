@@ -11,6 +11,13 @@ class CardPeliculaT extends Component{
         this.state.valor === "Ver Más" ? this.setState ({valor:"Ver Menos"}) : this.setState ({valor:"Ver Más"})
     }
 
+    agregarFavorito(id) {
+    let storage = localStorage.getItem("favoritosP");
+    let favoritos = JSON.parse(storage) || [];
+    favoritos.push(id);
+    localStorage.setItem("favoritosP", JSON.stringify(favoritos));
+}
+
     render(){
         return(
             <article className="single-card-movie">
@@ -26,8 +33,8 @@ class CardPeliculaT extends Component{
                             
                             </div>}
                     </section>
-                    <Link className='btn btn-primary' to ={"/detallePelicula/"+ this.props.id}>Ver detalles</Link>
-                    <button className="btn alert-primary">♥️</button>
+                    <Link className='btn btn-primary' to ={"/detalleP/"+ this.props.id}>Ver detalles</Link>
+                    <button className="btn alert-primary" onClick={() => this.agregarFavorito(this.props.id)}>♥️</button>
                 </div>
                 
                 

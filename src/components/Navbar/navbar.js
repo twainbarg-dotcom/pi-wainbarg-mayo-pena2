@@ -31,7 +31,7 @@ class Navbar extends Component {
                     <Link to="/Series" class="nav-link"> Series</Link>
                 </li>
                 <li class="nav-item">
-                    <Link to="/Favoritas" class="nav-link"> Favoritas</Link>
+                    <Link to="/Favoritos" class="nav-link"> Favoritas</Link>
                 </li>
                 <li class="nav-item ml-auto">
                     <Link to="/Registro" class="nav-link"> Registro</Link>
