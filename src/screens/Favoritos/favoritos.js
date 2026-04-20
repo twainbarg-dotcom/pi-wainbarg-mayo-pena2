@@ -69,7 +69,7 @@ class Favoritos extends Component {
     render() {
         return (
             <div>
-                <h2>Peliculas Favoritas</h2>
+                <h2 class="alert alert-warning">Peliculas Favoritas</h2>
                 <section className="row cards">
 
                     {this.state.cargando === true ? (
@@ -90,7 +90,7 @@ class Favoritos extends Component {
 
                 </section>
 
-                <h2>Series Favoritas</h2>
+                <h2 class="alert alert-primary">Series Favoritas</h2>
                 <section className="row cards">
 
                     {this.state.cargando === true ? (

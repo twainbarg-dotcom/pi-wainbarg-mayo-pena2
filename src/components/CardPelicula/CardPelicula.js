@@ -4,7 +4,11 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 class CardPelicula extends Component {
     constructor(props) {
         super(props);
-        this.state = { valor: "Ver Más" }
+        this.state = {
+            valor: "Ver Más",
+            favorito: false
+         }
+        
     }
 
     mostrarMas() {
@@ -20,6 +24,35 @@ class CardPelicula extends Component {
 
         localStorage.setItem("favoritosP", JSON.stringify(favoritos));
     }
+    agregarFavorito() {
+        let idFavorito = this.props.id
+        let storage = localStorage.getItem("favoritosP");
+        if (storage != null) {
+            let storageParse = JSON.parse(storage)
+            storageParse.push(idFavorito)
+            let storageString = JSON.stringify(storageParse)
+            localStorage.setItem("favoritosP", storageString)
+            this.setState({ favorito: true })
+        } else {
+            let arrayId = []
+            arrayId.push(idFavorito)
+            let arrayString = JSON.stringify(arrayId)
+            localStorage.setItem("favoritosP", arrayString)
+            this.setState({ favorito: true })
+        }
+    }
+
+    sacarFavoritoS() {
+        let idFavorito = this.props.id
+        let storage = localStorage.getItem("favoritosP")
+        if (storage !== null) {
+            let storageParseado = JSON.parse(storage)
+            let storageFiltrado = storageParseado.filter(id => id !== idFavorito)
+            let storageString = JSON.stringify(storageFiltrado)
+            localStorage.setItem("favoritosP", storageString)
+            this.setState({ favorito: false })
+        }
+    }
 
     render() {
         return (
@@ -34,16 +67,23 @@ class CardPelicula extends Component {
                         <p className="card-text" >Descripcion:{this.props.descrip}</p>
 
                     }
-                    <button className='btn btn-primary' onClick={() => this.mostrarMas()}>{this.state.valor}</button>
+                    <button className="extra" onClick={() => this.mostrarMas()}>{this.state.valor}</button>
                     <Link className='btn btn-primary' to={"/detalleP/" + this.props.id}>Ver detalles</Link>
+                    {this.state.favorito === false ? (
                     <button
                         className="btn alert-primary"
-                        onClick={() => 
-                           
-                            this.agregarFavorito(this.props.id)}
+                        onClick={() => this.agregarFavorito()}
                     >
-                        ♥️
+                        Agregar a favoritos ❤️
                     </button>
+                ) : (
+                    <button
+                        className="btn alert-danger"
+                        onClick={() => this.sacarFavoritoP()}
+                    >
+                        Quitar de favoritos 💔
+                    </button>
+                )}
                 </div>
 
 
