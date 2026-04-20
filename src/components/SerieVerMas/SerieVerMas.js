@@ -44,7 +44,7 @@ class SerieVerMas extends Component {
             <>
                 <h2 className="alert alert-warning">Series</h2>
                 <form className="search-form" onSubmit={(event) => this.busqueda(event)}>
-                <label>Que serie queres ver: </label>
+               
                 <input placeholder="Buscar..." className="" type="text" onChange={(event) => this.controlarCambios(event)} value={this.state.valor} />
                 <button className="btn btn-success" type="submit">Buscar</button>
                 </form>
@@ -65,9 +65,9 @@ class SerieVerMas extends Component {
                         ) : (<p>Cargando....</p>)
 
 
-                    }<button onClick={() => this.mostrarMas2()}>Ver Mas</button>
+                    }
                 </section>
-                
+            <button onClick={() => this.mostrarMas2()}>Ver Mas</button>
             </>
 
         )

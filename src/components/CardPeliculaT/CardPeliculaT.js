@@ -11,6 +11,21 @@ class CardPeliculaT extends Component {
         }
     }
 
+componentDidMount() {
+    
+    let storage = localStorage.getItem("favoritosP")
+
+    if (storage !== null) {
+        let storageParseado = JSON.parse(storage)
+
+        if (storageParseado.includes(this.props.id)) {
+            this.setState({ favorito: true })
+        }
+    }
+
+    }
+
+
     mostrarMas() {
         this.state.valor === "Ver Más" ? this.setState({ valor: "Ver Menos" }) : this.setState({ valor: "Ver Más" })
     }
@@ -40,7 +55,7 @@ class CardPeliculaT extends Component {
             let storageParseado = JSON.parse(storage)
             let storageFiltrado = storageParseado.filter(id => id !== idFavorito)
             let storageString = JSON.stringify(storageFiltrado)
-            localStorage.setItem("favoritosP", storageString)
+            localStorage.removeItem("favoritosP", storageString)
             this.setState({ favorito: false })
         }
     }
@@ -67,14 +82,14 @@ class CardPeliculaT extends Component {
                         className="btn alert-primary"
                         onClick={() => this.agregarFavorito()}
                     >
-                        Agregar a favoritos ❤️
+                       ❤️
                     </button>
                 ) : (
                     <button
                         className="btn alert-danger"
-                        onClick={() => this.sacarFavoritoP()}
+                        onClick={() => this.sacarFavoritoS()}
                     >
-                        Quitar de favoritos 💔
+                        💔
                     </button>
                 )}
             </div>

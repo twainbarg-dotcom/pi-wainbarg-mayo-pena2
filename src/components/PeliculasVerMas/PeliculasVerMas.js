@@ -44,9 +44,9 @@ class PeliculasVerMas extends Component {
     render() {
         return (
             <>
-                <h2 className="alert alert-warning">Peliculas</h2>
+                <h2 className="alert alert-primary">Peliculas</h2>
                 <form className="search-form" onSubmit={(event) => this.busqueda(event)}>
-                <label>Que pelicula queres ver: </label>
+                
                 <input placeholder="Buscar..." className="" type="text" onChange={(event) => this.controlarCambios(event)} value={this.state.valor} />
                 <button className="btn btn-success" type="submit">Buscar</button>
                 </form>
@@ -67,9 +67,9 @@ class PeliculasVerMas extends Component {
                         ) : (<p>Cargando....</p>)
 
 
-                    }<button onClick={() => this.mostrarMas2()}>Ver Mas</button>
+                    }
                 </section>
-                
+                <button onClick={() => this.mostrarMas2()}>Ver Mas</button>
             </>
 
         )

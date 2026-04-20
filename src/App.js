@@ -16,6 +16,7 @@ import formulario2 from "./screens/CrearCuenta/CrearCuenta";
 import Seriess from "./screens/SeriesScreen/SeriesScreen";
 import Peliculass from "./screens/PeliculasScreen/PeliculasScreen";
 import MiPerfil from "./screens/MiPerfil/MiPerfil"
+import Notfound from "./screens/NotFound/NotFound";
 
 
 
@@ -29,12 +30,13 @@ function App() {
           <Route path="/login" component={Login}/>
           <Route path="/registro" component={CrearCuenta} />
           <Route path="/favoritos" component={Favoritos} />
-          <Route path ="/detallePelicula/:id" component={DetalleP} />
+          <Route path ="/detalleP/:id" component={DetalleP} />
           <Route path = "/detalleSerie/:id" component={DetalleSerie}/>
           <Route path = "/resultadosBusqueda/:nombre/:tipo"  component= {SearchResults}  />
           <Route path = "/Series" component= {Seriess}/>
           <Route path="/Peliculas" component={Peliculass}/>
           <Route path = "/perfil" component={MiPerfil} />
+          <Route path ="" component ={Notfound} />
           
        </Switch>
       

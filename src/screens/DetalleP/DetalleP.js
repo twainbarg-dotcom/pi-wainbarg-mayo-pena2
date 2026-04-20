@@ -37,11 +37,12 @@ class DetalleP extends Component {
                         <section className="col-md-6 info">
                           <h3>Descripción</h3>
                           <p className="description">{this.state.personaje.overview}</p>
+                          <p class="mt-0 mb-0" id="gender"><strong>Genero:</strong>{this.state.personaje.genres[0].name}</p>
                           <p className="mt-0" id="votes"> <strong>Puntuación:</strong> {this.state.personaje.vote_average}</p>
                           <p className="mt-0 mb-0" id="release-date"> <strong>Fecha de estreno:</strong>{this.state.personaje.release_date}</p>
                           <p className="mt-0 mb-0 length"><strong>Duración:</strong>{this.state.personaje.runtime}</p>
                         </section>
-                        <button>Agregar a favoritos</button>
+                        <button>❤️</button>
 
 
                     </div> 

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CardPelicula from "../../components/CardPelicula/CardPelicula"
 import CardSeries from "../../components/CardSeries/CardSeries";
+import { BrowserRouter, withRouter } from "react-router-dom/cjs/react-router-dom";
 
 class Favoritos extends Component {
     constructor(props) {
