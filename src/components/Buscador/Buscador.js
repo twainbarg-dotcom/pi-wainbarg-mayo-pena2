@@ -1,29 +1,25 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom/cjs/react-router-dom.min";
 
-class Buscador extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      valor: '',
-      tipo: "movie"
+function Buscador(props) {
 
-    };
-  }
+  const [valor, setValor] = useState("")
+  const [tipo, setTipo] = useState("movie")
 
-  evitarSubmit(event) {
+  const evitarSubmit = (event) => {
     event.preventDefault();
-    this.props.history.push('/resultadosBusqueda/' + this.state.valor + "/" + this.state.tipo)
+    this.props.history.push('/resultadosBusqueda/' + this.state.valor + "/" + this.state.tipo)//
   }
 
-  controlarCambios(event) {
+  const controlarCambios = (event) => {
     this.setState({ valor: event.target.value });
   }
-  cambiarTipo(event) {
+
+  const cambiarTipo = (event) => {
     this.setState({ tipo: event.target.value });
   }
 
-  render() {
+ 
     return (
       <form className="search-form" onSubmit={(event) => this.evitarSubmit(event)}>
 
@@ -31,8 +27,8 @@ class Buscador extends Component {
         <button className="btn btn-success" type="submit">Buscar</button>
         <div className="radios">
           <label>
-           <input type="radio" name="tipo" value="movie" checked={this.state.tipo === "movie"} onChange={(event) => this.cambiarTipo(event)} />
-           Películas
+            <input type="radio" name="tipo" value="movie" checked={this.state.tipo === "movie"} onChange={(event) => this.cambiarTipo(event)} />
+            Películas
           </label>
 
           <label>
@@ -43,5 +39,5 @@ class Buscador extends Component {
       </form>
     );
   }
-}
+
 export default withRouter(Buscador)

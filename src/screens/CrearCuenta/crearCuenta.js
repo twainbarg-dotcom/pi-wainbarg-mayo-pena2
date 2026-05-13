@@ -1,6 +1,7 @@
 import React from "react";
 import { Component } from "react";
-import { withRouter } from "react-router-dom";class formulario2 extends Component {
+import { withRouter } from "react-router-dom";
+class formulario2 extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -60,7 +61,7 @@ import { withRouter } from "react-router-dom";class formulario2 extends Componen
     } else {
       let usersInicial = [usuarioACrear];
       localStorage.setItem("users", JSON.stringify(usersInicial));
-    }
+    }// agrega un nuevo usuario. Si ya hay usuarios, lo agrega al array existente; si no, crea uno nuevo
 
     alert("Usuario creado correctamente");
 

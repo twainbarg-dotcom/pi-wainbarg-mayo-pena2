@@ -1,22 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom/cjs/react-router-dom";
-import Cookies from "universal-cookie";
-const cookies = new Cookies();
-const authCookie = cookies.get("auth-user");
-
-class Navbar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      
-    };
-  }
-
- 
-  render() {
+import Cookies from "universal-cookie";// Importa la librería de cookies
+const cookies = new Cookies();// crea const para acceder a las cookies
+const authCookie = cookies.get("auth-user");// obtiene la cookie auth-user para ver si el usuario está autenticado.
     
-
+function Navbar(){
     return (
        <><h1>UdeSA Movies</h1>
 
@@ -56,5 +45,5 @@ class Navbar extends Component {
         </>
     )
 }
-}
+
 export default withRouter( Navbar);

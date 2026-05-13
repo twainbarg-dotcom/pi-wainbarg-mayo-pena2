@@ -16,7 +16,7 @@ class Favoritos extends Component {
     componentDidMount() {
 
         let storageP = localStorage.getItem("favoritosP")
-        let favoritosStorageP = JSON.parse(storageP)
+        let favoritosStorageP = JSON.parse(storageP)// Convierte el string en array
         let pelisRecuperadas = []
         console.log("favoritosStorageP:", favoritosStorageP)
 

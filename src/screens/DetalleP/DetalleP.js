@@ -12,7 +12,7 @@ class DetalleP extends Component {
     
     componentDidMount() {
         console.log(this.props)
-        const id = this.props.match.params.id
+        const id = this.props.match.params.id// “Obtiene el parámetro id desde la URL usando las props del router.”
         console.log(this.props)
         
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=34257d6921cc3054f39832954b0d3a65`)

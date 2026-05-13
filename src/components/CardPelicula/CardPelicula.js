@@ -1,20 +1,13 @@
 import React, { Component } from "react";
 
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-class CardPelicula extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            valor: "Ver Más",
-            favorito: false
-         }
-        
-    }
 
-    componentDidMount() {
-    
-    let storage = localStorage.getItem("favoritosP")
+function CardPelicula(props) {
 
+const [valor, setValor] = useState("Ver mas")
+const [favorito,setFavorito] = useState(false)
+useEffect ( ()=> {
+ let storage = localStorage.getItem("favoritosP")
     if (storage !== null) {
         let storageParseado = JSON.parse(storage)
 
@@ -22,23 +15,22 @@ class CardPelicula extends Component {
             this.setState({ favorito: true })
         }
     }
+},[])
 
-    }
+  
+    const mostrarMas =(event)=> {
+        valor === "Ver Más" ? valor( "Ver Menos" ) : valor( "Ver Más" )
+    } 
 
-    mostrarMas() {
-        this.state.valor === "Ver Más" ? this.setState({ valor: "Ver Menos" }) : this.setState({ valor: "Ver Más" })
-    }
-
-    agregarFavorito(id) {
+    const agregarFavorito = (event)=> {
         console.log("CLICK", id);
         let storage = localStorage.getItem("favoritosP");
-        let favoritos = JSON.parse(storage) || [];
+        let favoritos = JSON.parse(storage) || []; 
 
         favoritos.push(id);
-
         localStorage.setItem("favoritosP", JSON.stringify(favoritos));
     }
-    agregarFavorito() {
+    const agregarFavorito = (id)=> {
         let idFavorito = this.props.id
         let storage = localStorage.getItem("favoritosP");
         if (storage != null) {
@@ -56,7 +48,7 @@ class CardPelicula extends Component {
         }
     }
 
-    sacarFavoritoS() {
+    const sacarFavoritoS = (event)=> {
         let idFavorito = this.props.id
         let storage = localStorage.getItem("favoritosP")
         if (storage !== null) {
@@ -68,7 +60,7 @@ class CardPelicula extends Component {
         }
     }
 
-    render() {
+    
         return (
             <article className="single-card-playing">
 
@@ -107,7 +99,7 @@ class CardPelicula extends Component {
 
         )
     }
-}
+
 
 export default CardPelicula;
 

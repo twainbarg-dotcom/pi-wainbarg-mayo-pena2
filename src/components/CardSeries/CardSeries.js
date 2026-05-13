@@ -1,19 +1,14 @@
 import React, { Component } from "react";
 
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-class CardSeries extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-       valor: "Ver Más",
-       favorito: false
 
-     }
-  }
 
-componentDidMount() {
-    
-    let storage = localStorage.getItem("favoritosS")
+function CardSeries(props) {
+
+const [valor, setValor] = useState("Ver mas")
+const [favorito,setFavorito] = useState(false)
+useEffect ( ()=> {
+  let storage = localStorage.getItem("favoritosS")
 
     if (storage !== null) {
         let storageParseado = JSON.parse(storage)
@@ -22,20 +17,21 @@ componentDidMount() {
             this.setState({ favorito: true })
         }
     }
+},[]) 
 
-    }
 
-  mostrarMas() {
-    this.state.valor === "Ver Más" ? this.setState({ valor: "Ver Menos" }) : this.setState({ valor: "Ver Más" })
+
+  const  mostrarMas=(event) => {
+    valor === "Ver Más" ? valor( "Ver Menos" ) : valor( "Ver Más")
   }
 
-  agregarFavorito(id) {
+  const agregarFavorito =(id)=> {
     let storage = localStorage.getItem("favoritosS");
     let favoritos = JSON.parse(storage) || [];
     favoritos.push(id);
     localStorage.setItem("favoritosS", JSON.stringify(favoritos));
 }
-agregarFavorito() {
+ const agregarFavorito =(event) => {
         let idFavorito = this.props.id
         let storage = localStorage.getItem("favoritosS");
         if (storage != null) {
@@ -53,7 +49,7 @@ agregarFavorito() {
         }
     }
 
-    sacarFavoritoS() {
+    const sacarFavoritoS = (event) => {
         let idFavorito = this.props.id
         let storage = localStorage.getItem("favoritosS")
         if (storage !== null) {
@@ -65,7 +61,7 @@ agregarFavorito() {
         }
     }
 
-  render() {
+
     return (
       <article className="single-card-tv">
         <img src={this.props.imagen} alt="" className="card-img-top" />
@@ -106,7 +102,7 @@ agregarFavorito() {
 
     )
   }
-}
+
 
 export default CardSeries;
 
