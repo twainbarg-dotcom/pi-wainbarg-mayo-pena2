@@ -3,57 +3,51 @@ import CardSeries from "../CardSeries/CardSeries"
 import { Link } from "react-router-dom/cjs/react-router-dom"
 import { Component } from "react"
 import CardPelicula from "../CardPelicula/CardPelicula"
-
-class PeliculasVerMas extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            popular: [],
-            
-            pagina: 1,
-            valor:"",
-            valordebusqueda:""
-        }
-    }
-
-    componentDidMount() {
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=bb857f4016bcff3ee72ee89cb409417f&page=${this.state.pagina}`)
+import { useState, useEffect } from "react"
+function PeliculasVerMas () {
+    
+    
+    const [popular, setpopular] = useState([])
+    const [pagina , setpagina] = useState(1)
+    const[valor , setvalor]= useState("")
+    const [valordebusqueda , setvalordebusqueda] = useState ("")
+    useEffect (()=> {
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=bb857f4016bcff3ee72ee89cb409417f&page=${pagina}`)
             .then(response => response.json())
             .then(data => {
-                this.setState({
-                    popular: this.state.popular.concat(data.results)
-                })
+                setpopular( popular.concat(data.results)
+                )
             })
             .catch(error => console.log(error))
 
         
-    }   
-    controlarCambios(event) {
-        this.setState({ valor: event.target.value });
+    },[]   )
+     const controlarCambios =(event) => {
+        setvalor( event.target.value );
     }
-    busqueda(event){
+    const busqueda= (event)=>{
         event.preventDefault();
-        this.setState({valordebusqueda: this.state.valor})
+        setvalordebusqueda( valor)
     }
-    mostrarMas2() {
-        this.setState(
-            { pagina: this.state.pagina + 1 },
-            () => this.componentDidMount()
+    const mostrarMas2=()=> {
+        setpagina(
+             pagina + 1 ,
+            () => useEffect()
         )
     }
-    render() {
+    
         return (
             <>
                 <h2 className="alert alert-primary">Peliculas</h2>
-                <form className="search-form" onSubmit={(event) => this.busqueda(event)}>
+                <form className="search-form" onSubmit={(event) => busqueda(event)}>
                 
-                <input placeholder="Buscar..." className="" type="text" onChange={(event) => this.controlarCambios(event)} value={this.state.valor} />
+                <input placeholder="Buscar..." className="" type="text" onChange={(event) => controlarCambios(event)} value={valor} />
                 <button className="btn btn-success" type="submit">Buscar</button>
                 </form>
                 <section className="row cards" id="tv-show">
                     {
-                        this.state.popular.length > 0 ? (
-                            this.state.popular.filter((personaje) => personaje.title.toLowerCase().includes(this.state.valordebusqueda.toLowerCase())).map((personaje) => {
+                                popular.length > 0 ? (
+                                popular.filter((personaje) => personaje.title.toLowerCase().includes(valordebusqueda.toLowerCase())).map((personaje) => {
                                 return (
                                         <CardPelicula
                                         
@@ -69,10 +63,10 @@ class PeliculasVerMas extends Component {
 
                     }
                 </section>
-                <button onClick={() => this.mostrarMas2()}>Ver Mas</button>
+                <button onClick={() => mostrarMas2()}>Ver Mas</button>
             </>
 
         )
     }
-}
+
 export default PeliculasVerMas
